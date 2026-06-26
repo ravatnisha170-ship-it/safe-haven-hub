@@ -1,58 +1,56 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "tw-animate-css";
+
 :root {
   --radius: 1rem;
-
+  
   /* Purple #6C63FF, Pink #FF6B9D, Light lavender bg */
-  --background: oklch(0.985 0.012 300);
-  --foreground: oklch(0.27 0.02 270); /* dark gray #333 */
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.27 0.02 270);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.27 0.02 270);
-
-  --primary: oklch(0.62 0.21 285);          /* #6C63FF */
-  --primary-foreground: oklch(1 0 0);
-  --primary-glow: oklch(0.72 0.18 290);
-
-  --secondary: oklch(0.72 0.21 0);          /* #FF6B9D */
-  --secondary-foreground: oklch(1 0 0);
-
-  --muted: oklch(0.96 0.01 300);
-  --muted-foreground: oklch(0.5 0.03 280);
-
-  --accent: oklch(0.95 0.04 320);
-  --accent-foreground: oklch(0.35 0.15 285);
-
-  --destructive: oklch(0.6 0.24 27);
-  --destructive-foreground: oklch(1 0 0);
-
-  --emergency: oklch(0.6 0.25 25);
-  --emergency-foreground: oklch(1 0 0);
-
-  --border: oklch(0.92 0.02 300);
-  --input: oklch(0.93 0.02 300);
-  --ring: oklch(0.62 0.21 285);
-
-  --gradient-hero: linear-gradient(135deg, oklch(0.62 0.21 285) 0%, oklch(0.72 0.21 0) 100%);
-  --gradient-soft: linear-gradient(135deg, oklch(0.97 0.03 300) 0%, oklch(0.97 0.04 350) 100%);
+  --background: 0 0% 98.5%;
+  --foreground: 270 2% 27%;
+  --card: 0 0% 100%;
+  --card-foreground: 270 2% 27%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 270 2% 27%;
+  --primary: 252 100% 69%;
+  --primary-foreground: 0 0% 100%;
+  --primary-glow: 290 70% 72%;
+  --secondary: 340 100% 71%;
+  --secondary-foreground: 0 0% 100%;
+  --muted: 300 10% 96%;
+  --muted-foreground: 280 3% 50%;
+  --accent: 320 40% 95%;
+  --accent-foreground: 285 60% 35%;
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 100%;
+  --emergency: 0 72% 51%;
+  --emergency-foreground: 0 0% 100%;
+  --border: 300 10% 92%;
+  --input: 300 10% 95%;
+  --ring: 252 100% 69%;
+  
+  --gradient-hero: linear-gradient(135deg, hsl(252, 100%, 69%) 0%, hsl(340, 100%, 71%) 100%);
+  --gradient-soft: linear-gradient(135deg, hsl(300, 30%, 97%) 0%, hsl(320, 40%, 97%) 100%);
+  --shadow-soft: 0 10px 30px -12px hsl(252 100% 69% / 0.25);
+  --shadow-card: 0 4px 20px -8px hsl(252 100% 69% / 0.18);
 }
 
 @layer base {
-  * {
-    border-color: var(--color-border);
+    * {
+    border-color: hsl(var(--border));
   }
   html {
     scroll-behavior: smooth;
   }
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
-    font-family: var(--font-sans);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: "Inter", "Poppins", system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: "Poppins", "Inter", system-ui, sans-serif;
     font-weight: 700;
     letter-spacing: -0.02em;
   }
@@ -78,10 +76,10 @@
 }
 .card-hover {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  &:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-soft);
-  }
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-soft);
 }
 
 @keyframes fade-in-up {
